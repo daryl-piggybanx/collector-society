@@ -32,12 +32,12 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
-      "assets/*": ["./public/assets/*"],
-      "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "lib/*": ["./src/lib/*"],
-      "pages/*": ["./src/pages/*"],
-      "styles/*": ["./src/styles/*"],
+      "~/assets/*": ["./public/assets/*"],
+      "~/components/*": ["./src/components/*"],
+      "~/hooks/*": ["./src/hooks/*"],
+      "~/lib/*": ["./src/lib/*"],
+      "~/pages/*": ["./src/pages/*"],
+      "~/styles/*": ["./src/styles/*"],
       "types/*": ["./src/types/*"],
       "utils/*": ["./src/utils/*"]
     }
@@ -48,7 +48,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }

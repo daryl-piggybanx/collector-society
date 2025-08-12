@@ -12,7 +12,18 @@ const config = {
     typescript: {
         ignoreBuildErrors: true,
     },
-    
+    webpack: (config) => {
+        // Handle video files
+        config.module.rules.push({
+            test: /\.(mp4|webm|avi|mov)$/,
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/media/[name].[hash][ext]',
+            },
+        });
+        
+        return config;
+    },
 };
 
 export default config;

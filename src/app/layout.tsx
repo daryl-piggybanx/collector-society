@@ -24,6 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("min-h-screen bg-[#111111] font-sans text-white antialiased", cormorantGaramond.variable)}>
         {children}
+
+        <footer className="absolute bottom-0 left-0 p-8 text-sm text-white/50">
+          <p>PIGGYBANK ©2025</p>
+        </footer>
       </body>
     </html>
   )

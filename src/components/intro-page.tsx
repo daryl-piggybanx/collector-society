@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import bgVideo from "~/assets/webBG.mp4"
+import arrow from "~/assets/arrow.png"
+import { MoveRight } from "lucide-react"
 
 type IntroPageProps = {
   onEnter: () => void
@@ -64,7 +67,7 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
         onCanPlayThrough={handleVideoReady}
         onPlaying={handleVideoReady}
       >
-        <source src="/assets/Studio-Cribs_black-white.mp4" type="video/mp4" />
+        <source src={bgVideo as string} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -75,7 +78,7 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
       <AnimatePresence>
         {isVideoLoaded && (
           <motion.div
-            className="relative z-10 flex flex-col items-center justify-center text-center"
+            className="relative z-10 flex flex-col items-center justify-between text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -90,7 +93,7 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
             />
             {/* Title */}
             <motion.h1
-              className="mt-10 font-serif text-9xl font-bold uppercase tracking-wider text-white/70"
+              className="mt-10 font-serif text-6xl font-bold uppercase tracking-wider text-white/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -100,7 +103,7 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
 
             {/* Subtitle */}
             <motion.p
-              className="mt-2 font-serif text-4xl uppercase tracking-wider text-white/70"
+              className="mt-2 font-serif text-3xl uppercase tracking-wider text-white/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -111,13 +114,14 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
             {/* Enter Button */}
             <motion.button
               onClick={onEnter}
-              className="cursor-pointer group relative overflow-hidden border border-white/30 bg-transparent px-12 py-4 font-serif text-2xl font-light uppercase tracking-widest text-white transition-all duration-300 hover:border-white/60 hover:bg-white mt-10"
+              className="cursor-pointer group relative overflow-hidden bg-transparent px-12 py-12 font-serif text-2xl font-light uppercase tracking-widest text-white transition-all duration-300 mt-10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 transition-colors duration-300 group-hover:font-bold group-hover:text-black group-hover:bg-white">Enter</span>
+              <span className="relative z-10 transition-colors duration-300 group-hover:font-bold">Enter</span>
+              <Image src={arrow} alt="arrow" className="w-[95%]" />
               <motion.div
-                className="absolute inset-0 bg-white"
+                className="absolute inset-0"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "0%" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
